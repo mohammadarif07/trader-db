@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Mine Management</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-truck-fast"></i>
+                <span>MineAdmin</span>
+            </div>
+            <nav class="menu">
+                <button class="menu-item active" onclick="showSection('order')">
+                    <i class="fas fa-shopping-cart"></i> <span>Order</span>
+                </button>
+                <button class="menu-item" onclick="showSection('mines')">
+                    <i class="fas fa-mountain-city"></i> <span>Mines Avail</span>
+                </button>
+                <button class="menu-item" onclick="showSection('transport')">
+                    <i class="fas fa-truck-ramp-box"></i> <span>Transport Avail</span>
+                </button>
+                <button class="menu-item" onclick="showSection('assigning')">
+                    <i class="fas fa-list-check"></i> <span>Assigning</span>
+                </button>
+                <button class="menu-item" onclick="showSection('history')">
+                    <i class="fas fa-history"></i> <span>History</span>
+                </button>
+                <button class="menu-item" onclick="showSection('portfolio')">
+                    <i class="fas fa-briefcase"></i> <span>Portfolio</span>
+                </button>
+                <button class="menu-item" onclick="showSection('billing')">
+                    <i class="fas fa-file-invoice-dollar"></i> <span>Billing Details</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="logout-btn" onclick="window.location.href='index.html'">
+                    <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h2 id="section-title">Order Management</h2>
+                <div class="user-profile">
+                    <span>Admin User</span>
+                    <img src="https://ui-avatars.com/api/?name=Admin+User&background=00d2ff&color=fff" alt="Avatar">
+                </div>
+            </header>
+
+            <section id="content-area" class="glass-panel">
+                <!-- Initial content will be loaded by JS -->
+                <div class="loader">Loading...</div>
+            </section>
+        </main>
+    </div>
+
+    <!-- New Order Modal -->
+    <div id="order-modal" class="modal-backdrop">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <h3>Create New Order</h3>
+                <button class="close-btn" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <form id="new-order-form">
+                <div class="input-group">
+                    <label for="order-name">Order Name</label>
+                    <input type="text" id="order-name" placeholder="e.g. Acme Iron Delivery" required>
+                </div>
+                <div class="input-group">
+                    <label for="order-material">Material</label>
+                    <input type="text" id="order-material" placeholder="e.g. Iron Ore" required>
+                </div>
+                <div class="input-group">
+                    <label for="order-mine">Mine Site</label>
+                    <input type="text" id="order-mine" placeholder="e.g. Eagle Point" required>
+                </div>
+                <div class="input-group">
+                    <label for="order-quantity">Quantity (Tons)</label>
+                    <input type="number" id="order-quantity" placeholder="e.g. 500" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" onclick="closeOrderModal()">Cancel</button>
+                    <button type="submit" class="save-btn">Save Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
